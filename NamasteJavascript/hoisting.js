@@ -38,9 +38,9 @@ console.log(x); // 7
 
 // let and const are in the seprate memory space not in the global memory spcae .
 console.log(y); // Uncaught ReferenceError: Cannot access 'y' before initialization
-// y is hoisted in line num28 but vallue not assigned yet 
+// y is hoisted in line num28 but value is not assigned yet 
 let y = 7;
-// the value assigned to the y variable in line number 30. the time beeing from line number 28 to 30 till the value is assingned to variable y untill then y is in the temporal deadzone.
+// the value assigned to the y variable in line number 42. the time beeing from line number 28 to 30 till the value is assingned to variable y untill then y is in the temporal deadzone.
 console.log(y); // 7
 
 // let and const are hoisted in JS but they are in temporal deadzone. we cannot access them before initialization till the value is assigned to it.
