@@ -1,0 +1,287 @@
+
+//---------- General interview tasks in Javascript -------------------//
+             -------------------------------------
+
+1. Separate odd and even numbers? 
+2. Reverse an array [1,2,3,4,5,9,10,14] without using the array methods and using the array method? 
+ in‘javascript’
+ Answer:1  Without using array methods
+You can manually reverse the array using a for loop and a temporary variable to swap elements.
+
+let arr = [1, 2, 3, 4, 5, 9, 10, 14];
+
+for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+    let temp = arr[i];
+    arr[i] = arr[arr.length - 1 - i];
+    arr[arr.length - 1 - i] = temp;
+}
+
+console.log(arr); // Output: [14, 10, 9, 5, 4, 3, 2, 1]
+
+
+Answer:2  With using array methods
+let arr = [1, 2, 3, 4, 5, 9, 10, 14];
+arr.reverse();
+console.log(arr); // Output: [14, 10, 9, 5, 4, 3, 2, 1]
+
+
+3. Reverse a string ? ‘javascript’
+Answer:1  With using array methods
+function reverseStringWithMethods(str) {
+  return str.split('').reverse().join('');
+}
+
+// Example usage:
+console.log(reverseStringWithMethods('hello')); // Output: 'olleh'
+
+Answer:2  Without using array methods
+function reverseStringWithoutMethods(str) {
+  let reversedStr = '';
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversedStr += str[i];
+  }
+  return reversedStr;
+}
+
+// Example usage:
+console.log(reverseStringWithoutMethods('hello')); // Output: 'olleh'
+
+4. Print the multiples of 5 from the array? [1,2,3,4,5,9,10,14]
+
+Answer:1  With using array methods
+let arr = [1, 2, 3, 4, 5, 9, 10, 14];
+
+let multiplesOfFive = arr.filter(num => num % 5 === 0);
+
+console.log(multiplesOfFive); // 5, 10
+
+
+Answer:2  Without using array methods
+let arr = [1, 2, 3, 4, 5, 9, 10, 14];
+
+for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 5 === 0) {
+        console.log(arr[i]);
+    }
+}
+
+
+
+
+
+
+
+5. This sentence keep all the words in the same place and reverse them ? “JavaScript is a popular language in the world”
+
+Answer 1: With using array methods
+let sentence = "JavaScript is a popular language in the world";
+
+// Split the sentence into an array of words
+let reversedSentence = sentence.split(" ").map(word => {
+    // Reverse each word
+    return word.split("").reverse().join("");
+}).join(" ");
+
+console.log(reversedSentence);
+
+
+Answer 2: Without using array methods
+let sentence = "JavaScript is a popular language in the world";
+let reversedSentence = "";
+let word = "";
+
+for (let i = 0; i <= sentence.length; i++) {
+    if (i === sentence.length || sentence[i] === ' ') {
+        // When you encounter a space or end of sentence, reverse the current word
+        for (let j = word.length - 1; j >= 0; j--) {
+            reversedSentence += word[j];
+        }
+        // Add a space after reversing the word, except at the end of the sentence
+        if (i !== sentence.length) {
+            reversedSentence += " ";
+        }
+        // Reset the word for the next word
+        word = "";
+    } else {
+        // Build the current word
+        word += sentence[i];
+    }
+}
+
+console.log(reversedSentence);
+
+
+
+6. Group from this array ? myVegetables = [ { food : “ “, type: “ , count : “ “ }, { food : “ “, type: “ “, count : “ “ },{ food : “ “, type: “ “, count : “ “ }]
+
+Answer 1: With using array methods
+
+const myVegetables = [
+  { food: "Carrot", type: "Root", count: 5 },
+  { food: "Potato", type: "Root", count: 10 },
+  { food: "Lettuce", type: "Leafy", count: 3 },
+  { food: "Spinach", type: "Leafy", count: 7 }
+];
+
+const groupedByType = myVegetables.reduce((acc, veg) => {
+  // If the type doesn't exist in the accumulator, initialize it with an empty array
+  if (!acc[veg.type]) {
+    acc[veg.type] = [];
+  }
+  // Push the current vegetable into the appropriate type array
+  acc[veg.type].push(veg);
+  return acc;
+}, {});
+
+console.log(groupedByType);
+
+OutPut:
+
+{
+  "Root": [
+    { food: "Carrot", type: "Root", count: 5 },
+    { food: "Potato", type: "Root", count: 10 }
+  ],
+  "Leafy": [
+    { food: "Lettuce", type: "Leafy", count: 3 },
+    { food: "Spinach", type: "Leafy", count: 7 }
+  ]
+}
+
+
+Answer 2: Without using array methods
+
+const myVegetables = [
+  { food: "Carrot", type: "Root", count: 5 },
+  { food: "Potato", type: "Root", count: 10 },
+  { food: "Lettuce", type: "Leafy", count: 3 },
+  { food: "Spinach", type: "Leafy", count: 7 }
+];
+
+let groupedByType = {};
+
+// Loop through the array
+for (let i = 0; i < myVegetables.length; i++) {
+  let veg = myVegetables[i];
+  
+  // If the type doesn't exist in the object, create an empty array for it
+  if (!groupedByType[veg.type]) {
+    groupedByType[veg.type] = [];
+  }
+  
+  // Add the current vegetable to the appropriate type array
+  groupedByType[veg.type].push(veg);
+}
+
+console.log(groupedByType);
+
+
+
+
+
+
+
+
+
+
+
+
+Find the largest number and second largest number?  [1,2,3,4,5,9,10,14]
+Find the smallest number and second smallest number from this array?  [1,2,3,4,5,9,10,14]
+Give the example of map, filter, reduce?
+What is a chaining operator ? 
+Difference between null and undefined ? One example?
+Need to give the output in object format below like this? From this array?(//outPut : {28:2, 35:1, 80:1, 56:1})  const users = [{ firstName: 'akshay', lastName: 'saini', age: 28 },
+    { firstName: 'donald', lastName: 'trump', age: 35 },
+    { firstName: 'elon', lastName: 'musk', age: 80 },
+    { firstName: 'dipika', lastName: 'padukone', age: 56 },
+    { firstName: 'sujatha', lastName: 'Mogili', age: 28 },
+    { firstName: 'Naveen', lastName: 'Mogili', age: 35 }]
+
+What is destructuring ? one example
+What is shallow copy and deep copy?
+What is proto type in js?
+Call, apply and bind methods in JS ? (also called function borrowing ?)
+Add one element on front and remove last element ? let a=[10, 20, 1, 4,5];
+
+36. Please print all keys in the object from the below  json object ?             Const  json = {
+  "name": "John",
+  "age": 30,
+ "address": {
+            "street": "123 Main St",
+            "city": "New York"
+},
+ "hobbies": ["reading", "painting"],
+"friends": [
+        {"name": "Alice", "age": 28},
+        {"name": "Bob", "age": 32}
+]
+};
+*Rest  & Spread operator
+*What is asynchronous vs synchronous?
+*promises, promise chaining & *closure example
+ Print the below string in reverse order.(split the words using string methods) [Welcome to React Native Welcome to Javascript]
+       *what is the difference between closure and promises 
+*async await
+*Let var const
+*Call, apply and bind, function
+How to merge two arrays and two objects using spread operator or rest operator ?
+Diff between map filter and reduce?
+ Add element in front and delete element in last from an array?
+Print the twice repeated number from this array ? [2,2,2,2,5,1,1,1,2,2,2,7,9,6,5,5]
+Print 1 at 1 second, 2 at 2 seconds, 3 at 3 seconds, 4 at 4 seconds so on using var and let? Using closure ? //output: 1 2 3 4 5
+Create primise changing with these promise methods (createorder, ProceedToPayment, showOrderSummery, updateWallet)?
+What are the generator functions in JS?
+What is the set method in JS ?
+
+
+
+
+
+
+Top Javascript interview questions
+(https://javascriptcentric.medium.com/top-30-javascript-interview-questions-and-answers-for-2024-7f1e2d1d0638)
+
+Level-1 : basic 
+ Is Javascript single-threaded?
+Explain the main component of the JavaScript Engine and how it works.
+Explain the event loop in JavaScript and how it helps in asynchronous programming.
+Difference between var, let, and const ?
+Different data types in Javascript?
+What is callback function and callback hell ?
+What is Promise and Promise chaining?
+What is async/await ?
+What is the difference between == and === operators ?
+Different ways to create an Object in Javascript ?
+What is rest and spread operator?
+What is a higher-order function?
+Level-2 : Intermediate
+What is Closure? What are the use cases of Closures?
+Explain the concept of hoisting in JavaScript.
+What is a Temporal dead zone?
+What is a prototype chain? and Object.create() method?
+What is the difference between Call, Apply, and Bind methods?
+What are lambda or arrow functions?
+What is the currying function?
+What are the features of ES6?
+Level-3: Expert
+What is Execution context, execution stack, variable object, scope chain?
+What is the priority of execution of callback, promise, setTimeout, process.nextTick()?
+What is the Factory function and generator function?
+Different ways to clone (Shallow and deep copy of object) an object?
+How to make an object immutable? (seal and freeze methods)?
+What is Event and event flow, event bubbling and event capturing?
+ What is Event delegation?
+What are server-sent events?
+What is a web worker or service worker in javascript?
+How to compare 2 JSON objects in javascript?
+Loops in JS ?(for, forEach, for off, for in)
+Interview questions for string methods ?
+Interview questions on Array methods ?
+
+
+
+Additional skills 
+
+
+

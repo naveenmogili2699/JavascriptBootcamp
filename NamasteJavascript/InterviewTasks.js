@@ -32,7 +32,7 @@ for (let i = str.length - 1; i > 0; i--) {
 console.log(reverseStr, '=====>string reversed')
 
 
-// -------------- reverse an array --------------------//
+// -------------- reverse an array without using array method --------------------//
 const arr2 = [1, 2, 3, 4, 5, 9, 10, 14];
 
 // without using array method 
@@ -52,6 +52,8 @@ console.log(reverseArr1, 'reversed with using array method');
 
 
 // // ---------------------- separate  odd and even number -------------------------//
+
+// Example 1:-
 // const arr1 = [1, 2, 3, 4, 5, 6, 7, 8];
 // const evenNum = [];
 // const oddNum = [];
@@ -67,33 +69,31 @@ console.log(reverseArr1, 'reversed with using array method');
 // console.log(oddNum, "// oddnumbers");
 
 
+// Example 2:-
+// function separateOddEven(numbers) {
+//     let oddNumbers = [];
+//     let evenNumbers = [];
+    
+//     numbers.forEach(number => {
+//         if (number % 2 === 0) {
+//             evenNumbers.push(number);
+//         } else {
+//             oddNumbers.push(number);
+//         }
+//     });
+    
+//     return {
+//         odd: oddNumbers,
+//         even: evenNumbers
+//     };
+// }
 
+// // Example usage:
+// let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// let result = separateOddEven(numbers);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// console.log("Odd numbers:", result.odd);
+// console.log("Even numbers:", result.even);
 
 
 
